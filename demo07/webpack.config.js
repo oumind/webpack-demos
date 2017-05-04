@@ -6,10 +6,8 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    })
+    //The compress.warnings option of the UglifyJsPlugin now defaults to false instead of true.
+    //This means that if you want to see uglifyjs warnings, you need to set compress.warnings to true.
+    new uglifyJsPlugin()
   ]
 }

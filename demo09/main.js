@@ -1,3 +1,4 @@
+/* global __DEV__ */
 document.write('<h1>Hello World</h1>');
 
 if (__DEV__) {

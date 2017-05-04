@@ -8,11 +8,29 @@ module.exports = {
     filename: '[name].js'
   },
   module: {
-    loaders:[
-      { test: /\.js[x]?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' },
+    rules: [
+      {
+        test: /\.js[x]?$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['es2015', 'react']
+            }
+          }
+        ]
+      }
     ]
   },
   plugins: [
-    new CommonsChunkPlugin('init.js')
+    /*
+    CommonsChunkPlugin now only takes a single argument. Either an options object *or* the name of the chunk.
+    Example: if your old code looked like this:
+      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    You would change it to:
+      new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' })
+    */
+    new CommonsChunkPlugin({name: "init"})
   ]
 }

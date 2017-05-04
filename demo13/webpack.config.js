@@ -9,6 +9,13 @@ module.exports = {
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin(/* chunkName= */'vendor', /* filename= */'vendor.js')
+     /*
+    CommonsChunkPlugin now only takes a single argument. Either an options object *or* the name of the chunk.
+    Example: if your old code looked like this:
+      new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+    You would change it to:
+      new webpack.optimize.CommonsChunkPlugin({ name: 'vendor', filename: 'vendor.bundle.js' })
+    */
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendor', filename: 'vendor.js'})
   ]
 };

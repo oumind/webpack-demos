@@ -1,7 +1,8 @@
-var load = require('bundle-loader!./a.js');
+/*eslint-disable*/
+import load from 'bundle-loader!./a.js';
 
 load(function(file) {
   document.open();
-  document.write('<h1>' + file + '</h1>');
+  document.write('<h1>' + file.default + '</h1>');
   document.close();
 });

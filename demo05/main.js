@@ -1,7 +1,10 @@
-var img1 = document.createElement("img");
-img1.src = require("./small.png");
+import smallImg from './small.png';
+import bigImg from './big.png';
+
+const img1 = document.createElement('img');
+img1.src = smallImg;
 document.body.appendChild(img1);
 
-var img2 = document.createElement("img");
-img2.src = require("./big.png");
+const img2 = document.createElement('img');
+img2.src = bigImg;
 document.body.appendChild(img2);
